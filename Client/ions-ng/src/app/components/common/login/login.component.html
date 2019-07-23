@@ -1,0 +1,41 @@
+<div class="itl-login-container">
+    <mat-card class="itl-login-card">
+        <form [formGroup]="loginForm">
+            <div class="itl-form-container">
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="emailControl" [(ngModel)]="user.email">
+                    <mat-error *ngIf="loginForm.controls.emailControl.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.controls.emailControl.hasError('email')">
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="password" matInput class="mp-auth-input" placeholder="Password"
+                        formControlName="passwordControl" [(ngModel)]="user.password">
+                    <mat-error *ngIf="loginForm.controls.passwordControl.hasError('required')">
+                        Password is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br/>
+                <div class="itl-login-button-container">
+                    <button mat-raised-button color="primary" (click)="onLoginClick()"
+                    [disabled]="!loginForm.valid">Login</button>
+                </div>
+            </div>
+        </form>
+        <div class="itl-login-buttons-container">
+            <button mat-raised-button color="primary" (click)="signInWithFB()">Login with Facebook</button>
+        </div>
+    </mat-card>
+</div>
+<br>
+<div *ngIf="loggedIn">
+    <img src="{{ fbUser.photoUrl }}">
+    <div>
+        <h4>{{ fbUser.name }}</h4>
+        <p>{{ fbUser.email }}</p>
+        <button (click)="signOut()">Signout</button>
+    </div>
+</div>

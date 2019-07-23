@@ -1,0 +1,44 @@
+<form [formGroup]="homeInfoForm">
+    <div class="form-container" style="padding-top:10px">
+        <mat-form-field>
+            <input matInput placeholder="Home Name" formControlName="homeNameControl" [(ngModel)]="home.name">
+            <mat-error *ngIf="homeInfoForm.controls.homeNameControl.hasError('required')">
+                Home name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select [(value)]="home.country" placeholder="Select Country">
+                <mat-option *ngFor="let country of countryList" value="{{ country }}" (click)="onCountrySelected()">
+                    {{ country }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select [(value)]="home.city" placeholder="Select City">
+                <mat-option *ngFor="let city of cityList" value="{{ city }}">{{ city }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Township" formControlName="townshipControl" [(ngModel)]="home.township">
+            <mat-error *ngIf="homeInfoForm.controls.townshipControl.hasError('required')">
+                Township is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-placeholder>
+               Address
+            </mat-placeholder>
+            <textarea matInput formControlName="addressControl" [(ngModel)]="home.address">
+          </textarea>
+                <mat-icon mat-icon-button (click)="mapClicked()" class="ion-map-icon">map</mat-icon>
+            <mat-error *ngIf="homeInfoForm.controls.addressControl.hasError('required')">
+                Address is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <br />
+        <div>
+            <button class="form-button" color="primary" mat-raised-button (click)="updateHome()"
+                [disabled]="!homeInfoForm.valid">Update Home Info</button>
+        </div>
+    </div>
+</form>

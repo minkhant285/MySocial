@@ -1,0 +1,81 @@
+<div class="ion-posts-container">
+    <div class="ion-posts-content" *ngFor="let post of posts; let i = index">
+        <mat-card class="ion-posts">
+            <mat-card-header>
+                <img mat-card-avatar src="{{ post.avatar }}" class="md-card-image ion-posts-profile-avatar"
+                    alt="profile_photo" />
+                <mat-card-title>
+                    {{ post.name }}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{ post.time }}
+                </mat-card-subtitle>
+                <mat-menu #appMenu="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon>save</mat-icon>Save post
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>visibility_off</mat-icon>Hide post
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>link</mat-icon>Copy link
+                    </button>
+                </mat-menu>
+                <div fxFlex fxLayoutAlign="end">
+                    <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </div>
+            </mat-card-header>
+            <div *ngIf="post.contentType === 'image/png'">
+                <img mat-card-image *ngFor="let photoUrl of post.contentUrl" src="{{ photoUrl }}"
+                    class="ion-posts-photos" alt="photo name" />
+            </div>
+            <div *ngIf="post.contentType === 'video/mp4'" mat-card-image>
+                <video class="ion-posts-videos" *ngFor="let videoUrl of post.contentUrl" src="{{ videoUrl }}"
+                    controls="true"></video>
+            </div>
+            <div *ngIf="post.contentType === 'audio/mp3'">
+                <audio class="ion-posts-audio" *ngFor="let audioUrl of post.contentUrl" src="{{ audioUrl }}"
+                    controls="true"></audio>
+            </div>
+            <mat-card-content>
+                <p>{{ post.status }}</p>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <span *ngIf="post.like.length > 0" class="ion-posts-like" (click)="likeList(i,post.post_id)">
+                        {{ post.like.length }}
+                        <span *ngIf="post.like.length == 1">Like</span>
+                        <span *ngIf="post.like.length > 1">Likes</span>
+                    </span>
+                    <span>
+                        <span *ngIf="post.comments.length > 0" (click)="comment(post.post_id)">
+                            {{ post.comments.length }}
+                            <span *ngIf="post.comments.length == 1">comment</span>
+                            <span *ngIf="post.comments.length > 1">comments</span>
+                        </span>
+                        <span *ngIf="post.share > 0">
+                            &#9679; {{ post.share }}
+                            <span *ngIf="post.share == 1">share</span>
+                            <span *ngIf="post.share > 1">shares</span>
+                        </span>
+                    </span>
+                </div>
+            </mat-card-content>
+            <hr />
+            <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center" class="ion-posts-actions">
+                <button mat-button (click)="like(i,post.post_id)" *ngIf="post.liked" color="primary">
+                    <mat-icon>thumb_up</mat-icon>LIKE
+                </button>
+                <button mat-button (click)="like(i,post.post_id)" *ngIf="!post.liked">
+                    <mat-icon>thumb_up</mat-icon>LIKE
+                </button>
+                <button mat-button (click)="comment(i,post.post_id)">
+                    <mat-icon>comment</mat-icon>COMMENT
+                </button>
+                <button mat-button (click)="share(i,post.post_id)">
+                    <mat-icon>share</mat-icon>SHARE
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

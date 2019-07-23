@@ -1,0 +1,39 @@
+<div class="itl-sidemenu-container">
+    <mat-sidenav-container class="itl-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+        <mat-sidenav class="itl-sidenav-container-panel" #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery.matches" fixedTopGap="0">
+            <mat-nav-list class="itl-sidenav-container-panel">
+                <ng-container>
+                <mat-divider [inset]="false"></mat-divider>
+                <h1>
+                    <a class="itl-sidenav-container-item-header" routerLinkActive="active" [routerLink]="['_', Constants.Page.PROFILE]"
+                        (click)="toggleSidenav()">
+                        <img mat-card-avatar src="../../../../assets/profile.png" class="md-card-image itl-side-menu-profile-avatar"
+                        alt="image caption">
+                        <span>Oak Soe</span>
+                    </a>
+                </h1>
+                <a class="itl-sidenav-container-item" mat-list-item routerLinkActive="active" [routerLink]="['_', Constants.Page.HOME]"
+                    (click)="toggleSidenav()">
+                    <mat-icon>home</mat-icon>
+                    <span class="itl-sidenav-container-item-label">Home</span>
+                </a>
+                <a class="itl-sidenav-container-item" mat-list-item routerLinkActive="active" [routerLink]="['_', Constants.Page.CHAT]"
+                    (click)="toggleSidenav()">
+                    <mat-icon>chat</mat-icon>
+                    <span class="itl-sidenav-container-item-label">Chat</span>
+                </a>
+                <a class="itl-sidenav-container-item" mat-list-item (click)="onLogout()">
+                    <span class="itl-sidenav-container-item-label">Logout</span>
+                </a>
+                </ng-container>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav class="itl-right-sidenav-container-panel" #rightSidenav [mode]="side" position="end" fixedTopGap="0">
+            <ions-chat></ions-chat>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

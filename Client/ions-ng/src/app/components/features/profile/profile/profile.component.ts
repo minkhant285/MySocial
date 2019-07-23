@@ -1,0 +1,12 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+    selector: 'ions-profile',
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.scss']
+})
+export class ProfileComponent implements OnInit {
+    ngOnInit(){
+    }
+   
+}

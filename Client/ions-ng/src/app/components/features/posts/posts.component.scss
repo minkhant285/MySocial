@@ -1,0 +1,45 @@
+.ion-posts-container {
+  border: 5;
+
+  .ion-posts-content {
+    margin-top: 10px;
+    .ion-posts {
+      font-weight: bold;
+      background-color: #dce0eb;
+    }
+
+    .ion-posts-profile-avatar {
+      width: 50px;
+      height: 50px;
+    }
+
+    .ion-posts-photo {
+      size: cover;
+      display: block;
+      max-width: 100%;
+      height: 40vh;
+    }
+
+    .ion-posts-photos {
+      margin-top: 0;
+    }
+
+    .ion-posts-videos {
+      width: 100%;
+    }
+
+    .ion-posts-audio {
+      margin-left: -10px;
+      padding: 10px;
+      width: 100%;
+      background-color: #f1f3f4;
+    }
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  .ion-posts-container {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+}

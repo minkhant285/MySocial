@@ -1,0 +1,50 @@
+.ion-post-container {
+    margin-left: 200px;
+    margin-right: 200px;
+
+    .ion-user-header {
+        .ion-user-header-card {
+            background-color: black;
+            color: white;
+            text-align: center;
+            border-radius: 0;
+
+            .ion-user-profile-avatar {
+                width: 90px;
+                height: 90px;
+            }
+
+            .mat-card-content {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .ion-post-content {
+        .ion-post-content-profile {
+            margin-top: 10px;
+
+            .mat-card {
+                border-radius: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 959px) {
+    .ion-post-container {
+        margin-left: 0;
+        margin-right: 0;
+
+        .ion-post-content .ion-post-right-content {
+            max-width: 100% !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 960px) and (max-width: 1279px) {
+    .ion-post-container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

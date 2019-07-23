@@ -1,0 +1,71 @@
+<form [formGroup]="userInfoForm">
+    <div class="form-container" style="padding-top:10px">
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="emailControl" [(ngModel)]="user.email">
+            <mat-error *ngIf="userInfoForm.controls.emailControl.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="userInfoForm.controls.emailControl.hasError('email')">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" matInput placeholder="Password" formControlName="passwordControl"
+                [(ngModel)]="user.password">
+            <mat-error *ngIf="userInfoForm.controls.passwordControl.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="userInfoForm.controls.passwordControl.hasError('validatePasswordStrength')">
+                Password must have minimum 6 characters
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" matInput placeholder="Retype Password" formControlName="passwordControl2">
+            <mat-error *ngIf="userInfoForm.controls.passwordControl2.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="userInfoForm.controls.passwordControl2.hasError('validatePasswordMatch')">
+                Passwords do not match
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Full Name" formControlName="fullNameControl" [(ngModel)]="user.name">
+            <mat-error *ngIf="userInfoForm.controls.fullNameControl.hasError('required')">
+                Full Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select [(value)]="user.gender" placeholder="Choose Gender">
+                <mat-option *ngFor="let gender of genders" value="{{ gender }}">
+                    {{ gender }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="dob" placeholder="Date of Birth" formControlName="dobControl"
+                [(ngModel)]="user.dob">
+            <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+            <mat-datepicker #dob></mat-datepicker>
+            <mat-error *ngIf="userInfoForm.controls.dobControl.hasError('required')">
+                Date of Birth is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="userInfoForm.controls.dobControl.hasError('validateDOB')">
+                Date must be before today
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Phone" formControlName="phoneControl" [(ngModel)]="user.phone" />
+            <mat-error *ngIf="userInfoForm.controls.phoneControl.hasError('required')">
+                Phone is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="userInfoForm.controls.phoneControl.hasError('validatePhone')">
+                Phone number must be digit
+            </mat-error>
+        </mat-form-field>
+        <br />
+        <div>
+            <button class="form-button" color="primary" mat-raised-button (click)="updateUser()"
+                [disabled]="!userInfoForm.valid">Update User Info</button>
+        </div>
+    </div>
+</form>

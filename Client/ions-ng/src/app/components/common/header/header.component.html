@@ -1,0 +1,29 @@
+<div fxLayout="row" fxLayoutAlign="center stretch">
+    <mat-toolbar color="primary" class="itl-toolbar">
+        <div fxFlex="75" class="itl-toolbar-item itl-toolbar-item-left">
+            <ul>
+                <li *ngIf="isLoggedIn" class="itl-sidemenu-toggle" fxHide="true" fxShow.xs="true">
+                    <button mat-icon-button (click)="toggleSideMenu()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </li>
+                <li class="itl-app-name">
+                    <h1>Ions</h1>
+                </li>
+            </ul>
+            <div *ngIf="isLoggedIn">
+                <itlx-search-bar></itlx-search-bar>
+            </div>
+        </div>
+        <div fxFlex="25" class="itl-toolbar-item itl-toolbar-item-right" *ngIf="isLoggedIn" fxHide.xs="true">
+            <itlx-header-menu></itlx-header-menu>
+        </div>
+    </mat-toolbar>
+</div>
+<!-- <div>
+    <mat-toolbar color="primary" class="itl-toolbar">
+        <div class="col span_3_of_12 itl-toolbar-item itl-toolbar-item-left"></div>
+        <div class="col span_6_of_12 itl-toolbar-item itl-toolbar-item-center"></div>
+        <div class="col span_3_of_12 itl-toolbar-item itl-toolbar-item-right"></div>
+    </mat-toolbar>
+</div> -->

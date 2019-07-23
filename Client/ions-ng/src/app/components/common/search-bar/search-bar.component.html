@@ -1,0 +1,15 @@
+<form [formGroup]="searchForm">
+    <div class="itl-search-bar-container">
+    
+        <mat-form-field class="itl-search-bar">
+            <input type="text" placeholder="Search" floatLabel="never" matInput 
+            formControlName="searchControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of options" [value]="option">
+                {{ option }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <span class="itl-search-bar-icon" fxHide.xs="true"><mat-icon>search</mat-icon></span>
+    </div>
+</form>

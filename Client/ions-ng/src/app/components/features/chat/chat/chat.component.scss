@@ -1,0 +1,12 @@
+.ion-chat {
+  background-color: #dfdfcf;
+}
+.ion-messages {
+  height: 80vh;
+}
+
+@media only screen and (min-width: 310px) and (max-width: 998px) {
+  .ion-messages {
+    height: 70vh;
+  }
+}

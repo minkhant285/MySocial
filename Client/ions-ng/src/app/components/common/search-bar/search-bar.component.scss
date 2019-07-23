@@ -1,0 +1,23 @@
+.itl-search-bar-container {
+    width: 300px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .itl-search-bar {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .itl-search-bar-icon {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    .itl-search-bar-container {
+        width: 180px;
+        margin-left: 22px;
+    }
+}

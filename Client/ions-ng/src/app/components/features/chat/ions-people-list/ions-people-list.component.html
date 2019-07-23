@@ -1,0 +1,11 @@
+<div class="row ion-search-div">
+  <input type="text" class="ion-search-box" #box placeholder="Type Keywords and press enter...." [(ngModel)]="keyword"
+    (keyup.enter)="searchPeople(box.value)" autocomplete="true">
+</div>
+<div class="ion-message-list row">
+  <mat-list class="col">
+    <mat-list-item class="ion-list-hover" *ngFor='let data of datas' (click)="message(data)">
+      <span class="material-icons">people &nbsp;&nbsp;</span>{{data}}
+    </mat-list-item>
+  </mat-list>
+</div>

@@ -1,0 +1,18 @@
+.md-card {
+  margin-top: 5px;
+  background-color: #6355dd;
+  color: #fff;
+  text-align: center;
+}
+
+@media only screen and (min-width: 998px) {
+  .ion-profile-info {
+    height: 75vh;
+  }
+}
+
+@media only screen and (max-width: 996px) {
+  .ion-profile-info {
+    height: 65vh;
+  }
+}

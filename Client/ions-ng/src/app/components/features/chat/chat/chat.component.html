@@ -1,0 +1,10 @@
+<div class="ion-chat">
+    <div class="ion-messages">
+      {{name}}<br>{{message}}
+    </div>
+    <div class="d-flex align-items-end ion-chat">
+      <mat-form-field class="col-md-12 col-lg-12 col-sm-12">
+        <input matInput placeholder="Type message......" [(ngModel)]="message" autocomplete="false">
+      </mat-form-field>
+    </div>
+</div>

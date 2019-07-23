@@ -1,0 +1,32 @@
+input ChatsInput {
+  sender: String!
+  receiver: String!
+  msg: String!
+  room_id: String!
+  sendTime: String!
+  receiveTime: String!
+}
+
+type ChatType {
+  id: ID!
+  sender: String!
+  receiver: String!
+  msg: String!
+  room_id: String!
+  sendTime: String!
+  receiveTime: String!
+}
+
+type Mutation {
+  createChat(input: ChatsInput!): ChatType!
+}
+
+type Query {
+  welcome: String!
+  chats: [ChatType!]!
+}
+
+type Subscription {
+  newMessage: ChatType!
+  commentAdded: String!
+}

@@ -1,0 +1,52 @@
+<div *ngIf="data.LC">
+    <h3>Comments</h3>
+    <hr>
+    <div mat-dialog-content class="ion-comment-body">
+        <div *ngFor="let comm of data.comments" style="overflow: auto" fxLayout="row" class="ion-comment">
+            <img mat-card-avatar src="../../../../assets/profile.png" class="md-card-image ion-posts-profile-avatar"
+                alt="profile_photo" />
+            <div fxLayout="column" class="comment">
+                <mat-card-title>
+                    {{ data.name }}
+                </mat-card-title>
+                {{comm}}
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div fxlayout="row">
+        <mat-form-field>
+            <input matInput placeholder="Enter comment..." [(ngModel)]="data.comment" />
+        </mat-form-field>
+        <div fxLayoutAlign="end">
+            <button mat-button (click)="onNoClick()">Cancel</button>
+            <button mat-button [mat-dialog-close]="data.comment" cdkFocusInitial>
+                Ok
+            </button>
+        </div>
+    </div>
+</div>
+<div *ngIf="!data.LC">
+    <h3>Likes</h3>
+    <hr>
+    <div mat-dialog-content class="ion-comment-body">
+        <div *ngFor="let like of data.likes" style="overflow: auto" fxLayout="row" class="ion-comment">
+            <img mat-card-avatar src="../../../../assets/profile.png" class="md-card-image ion-posts-profile-avatar"
+                alt="profile_photo" />
+            <div fxLayout="column" class="comment">
+                <mat-card-title>
+                    {{ like }}
+                </mat-card-title>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div fxlayout="row">
+        <div fxLayoutAlign="end">
+            <button mat-button (click)="onNoClick()">Cancel</button>
+            <button mat-button [mat-dialog-close]="data.comment" cdkFocusInitial>
+                Ok
+            </button>
+        </div>
+    </div>
+</div>
