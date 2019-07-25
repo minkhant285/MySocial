@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { UserValidatorService as ValidatorService, AuthService } from '../../../services';
+import { UserValidatorService as ValidatorService, AuthService, LocationService } from '../../../services';
 import { User } from 'src/app/models';
 
 @Component({
@@ -25,7 +25,8 @@ export class SignupComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private validatorService: ValidatorService,
-        private authService: AuthService
+        private authService: AuthService,
+        private locationService: LocationService
     ) {
     }
 
@@ -58,12 +59,12 @@ export class SignupComponent implements OnInit {
     }
 
     public onCountrySelected() {
-        //   this.cityList = this.locationService.getCityList(this.user.country);
+        this.cityList = this.locationService.getCityList(this.user.country);
     }
 
     private initSignupForm() {
-        // this.countryList = this.locationService.getCountryList();
-        // this.cityList = this.locationService.getCityList(this.countryList[0]);
+        this.countryList = this.locationService.getCountryList();
+        this.cityList = this.locationService.getCityList(this.countryList[0]);
 
         this.signupForm = this.formBuilder.group({
             emailControl: ['', [Validators.required, Validators.email]],

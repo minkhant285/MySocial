@@ -3,7 +3,6 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services';
 import { Constants, User, FbUser } from 'src/app/models';
-import { AuthService as socialAuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
 
 @Component({
     selector: 'itlx-login',
@@ -15,7 +14,6 @@ export class LoginComponent implements OnInit {
     public loading = false;
 
     private user: User;
-    private fbUser: SocialUser;
     private fbUserData: FbUser;
     private loginPage: boolean;
     private loggedIn: boolean;
@@ -23,8 +21,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private authService: AuthService,
-        // private fbAuthService: socialAuthService
+        private authService: AuthService
     ) {
     }
 
@@ -39,10 +36,6 @@ export class LoginComponent implements OnInit {
             dob: '',
             role: '',
         }
-        // this.fbAuthService.authState.subscribe((user) => {
-        //     this.fbUser = user;
-        //     this.loggedIn = (user != null);
-        // });
         this.initLoginForm();
     }
 
@@ -64,12 +57,6 @@ export class LoginComponent implements OnInit {
     public signUp() {
         this.loginPage = false;
     }
-
-    // public signOut(): void {
-    //     this.fbAuthService.signOut();
-    //     this.loggedIn = false;
-    //     console.log(this.fbUser.email);
-    // }
 
     private initLoginForm() {
         this.loginForm = this.formBuilder.group({
