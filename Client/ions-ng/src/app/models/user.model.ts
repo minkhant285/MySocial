@@ -6,6 +6,7 @@ export class User {
     public gender: string;
     public dob: string;
     public role: string;
+    public country: string;
 
     constructor() {
         this.id = '';

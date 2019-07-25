@@ -38,7 +38,8 @@ export class SignupComponent implements OnInit {
             gender: '',
             dob: '',
             role: '',
-            password: ''
+            password: '',
+            country: '',
         };
         this.initSignupForm();
     }
