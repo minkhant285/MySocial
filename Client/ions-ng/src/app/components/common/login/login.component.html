@@ -1,5 +1,5 @@
 <div class="itl-login-container">
-    <mat-card class="itl-login-card">
+    <mat-card class="itl-login-card" *ngIf="loginPage">
         <form [formGroup]="loginForm">
             <div class="itl-form-container">
                 <mat-form-field>
@@ -18,24 +18,19 @@
                         Password is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-                <br/>
+                <br />
                 <div class="itl-login-button-container">
                     <button mat-raised-button color="primary" (click)="onLoginClick()"
-                    [disabled]="!loginForm.valid">Login</button>
+                        [disabled]="!loginForm.valid">Login</button>
                 </div>
             </div>
         </form>
         <div class="itl-login-buttons-container">
-            <button mat-raised-button color="primary" (click)="signInWithFB()">Login with Facebook</button>
+            <button mat-raised-button color="primary" (click)="signUp()">Sign Up</button>
         </div>
+    </mat-card>
+    <mat-card *ngIf="!loginPage">
+        <mySocial-signup (toggleAuthClick)="toggleLogin($event)"></mySocial-signup>
     </mat-card>
 </div>
 <br>
-<div *ngIf="loggedIn">
-    <img src="{{ fbUser.photoUrl }}">
-    <div>
-        <h4>{{ fbUser.name }}</h4>
-        <p>{{ fbUser.email }}</p>
-        <button (click)="signOut()">Signout</button>
-    </div>
-</div>

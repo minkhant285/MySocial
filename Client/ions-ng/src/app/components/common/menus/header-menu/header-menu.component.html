@@ -1,13 +1,23 @@
 <div class="itl-header-menu-container">
-    <button mat-menu-item class="itl-header-menu-item" (click)="onMenuItemClick(Constants.Page.HOME)"><mat-icon>home</mat-icon></button>    
-    <button mat-menu-item class="itl-header-menu-item" (click)="onChatMenuClick()"><mat-icon>message</mat-icon></button>
-    <button class="itl-header-menu-profile" mat-button [matMenuTriggerFor] = "menu">
+    <button mat-menu-item class="itl-header-menu-item material-icon" (click)="onChatMenuClick()">
+        <mat-icon matBadge="19" matBadgeColor="warn" matBadgeSize="medium">notifications
+        </mat-icon>
+    </button>
+    <button mat-menu-item class="itl-header-menu-item" (click)="onMenuItemClick(Constants.Page.HOME)">
+        <mat-icon>home</mat-icon>
+    </button>
+    <button mat-menu-item class="itl-header-menu-item" (click)="onChatMenuClick()">
+        <mat-icon>message</mat-icon>
+    </button>
+    <button class="itl-header-menu-profile" mat-button [matMenuTriggerFor]="menu">
         <img mat-card-avatar src="../../../../assets/profile.png" class="md-card-image itl-header-menu-profile-avatar"
-        alt="image caption">
+            alt="image caption" />
         <span class="itl-header-menu-profile-name">Oak Soe</span>
     </button>
-    <mat-menu #menu = "matMenu">
-        <button mat-menu-item (click)="onMenuItemClick(Constants.Page.PROFILE)">Profile</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onMenuItemClick(Constants.Page.PROFILE)">
+            Profile
+        </button>
         <button mat-menu-item (click)="onLogout()">Logout</button>
     </mat-menu>
 </div>

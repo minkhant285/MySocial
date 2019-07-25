@@ -2,6 +2,7 @@
 export { HeaderComponent } from './common/header/header.component';
 export { SearchBarComponent } from './common/search-bar/search-bar.component';
 export { LoginComponent } from './common/login/login.component';
+export { SignupComponent } from './common/signup/signup.component';
 
 // Menu Components
 export { HeaderMenuComponent } from './common/menus/header-menu/header-menu.component';

@@ -17,17 +17,19 @@ export class LoginComponent implements OnInit {
     private user: User;
     private fbUser: SocialUser;
     private fbUserData: FbUser;
+    private loginPage: boolean;
     private loggedIn: boolean;
 
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
         private authService: AuthService,
-        private fbAuthService: socialAuthService
+        // private fbAuthService: socialAuthService
     ) {
     }
 
     public ngOnInit() {
+        this.loginPage = true;
         this.user = {
             id: '',
             email: 'oak@gmail.com',
@@ -37,10 +39,10 @@ export class LoginComponent implements OnInit {
             dob: '',
             role: '',
         }
-        this.fbAuthService.authState.subscribe((user) => {
-            this.fbUser = user;
-            this.loggedIn = (user != null);
-        });
+        // this.fbAuthService.authState.subscribe((user) => {
+        //     this.fbUser = user;
+        //     this.loggedIn = (user != null);
+        // });
         this.initLoginForm();
     }
 
@@ -55,28 +57,19 @@ export class LoginComponent implements OnInit {
             });
     }
 
-    public signInWithFB() {
-        this.fbAuthService.signIn(FacebookLoginProvider.PROVIDER_ID)
-            .then(() => {
-                this.fbUserData = {
-                    name: this.fbUser.name,
-                    email: this.fbUser.email,
-                    photoUrl: this.fbUser.photoUrl
-                }
-                this.authService.signupWithFB(this.fbUserData)
-                    .subscribe(result => { }
-                        , err => {
-                            return err;
-                        }
-                    );
-            });
+    toggleLogin($event) {
+        this.loginPage = true;
     }
 
-    public signOut(): void {
-        this.fbAuthService.signOut();
-        this.loggedIn = false;
-        console.log(this.fbUser.email);
+    public signUp() {
+        this.loginPage = false;
     }
+
+    // public signOut(): void {
+    //     this.fbAuthService.signOut();
+    //     this.loggedIn = false;
+    //     console.log(this.fbUser.email);
+    // }
 
     private initLoginForm() {
         this.loginForm = this.formBuilder.group({

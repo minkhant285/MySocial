@@ -1,16 +1,36 @@
 <div class="ion-create-post-container">
     <div *ngIf="showPosts">
-        <mat-card fxLayout="column" fxLayoutAlign="center stretch" (click)="callCreatePost()"
-            class="ion-create-post-content">
+        <mat-card
+            fxLayout="column"
+            fxLayoutAlign="center stretch"
+            (click)="callCreatePost()"
+            class="ion-create-post-content"
+        >
             <div fxFlex="100" fxLayout="row" class="ion-create-post-status">
-                <img mat-card-avatar src="../../../../assets/profile.png" class="md-card-image ion-user-profile-avatar"
-                    alt="image caption" />
+                <img
+                    mat-card-avatar
+                    src="../../../../assets/profile.png"
+                    class="md-card-image ion-user-profile-avatar"
+                    alt="image caption"
+                />
                 <mat-form-field class="ion-create-post-input">
-                    <input type="text" matInput placeholder="What's on your mind?" />
+                    <input
+                        type="text"
+                        matInput
+                        placeholder="What's on your mind?"
+                    />
                 </mat-form-field>
             </div>
-            <div fxLayout="row" fxLayoutAlign="space-between center" class="ion-create-post-function">
-                <div fxLayout="row" fxLayoutAlign="space-between center" (click)="fileInput.click()">
+            <div
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+                class="ion-create-post-function"
+            >
+                <div
+                    fxLayout="row"
+                    fxLayoutAlign="space-between center"
+                    (click)="fileInput.click()"
+                >
                     <mat-icon>photo</mat-icon>
                     Photos/Videos
                     <input hidden type="file" #fileInput />
@@ -29,8 +49,12 @@
     <div *ngIf="!showPosts">
         <mat-card class="ion-create-post-data">
             <mat-card-header class="ion-create-post-data-header">
-                <img mat-card-avatar src="../../../../assets/profile.png" class="md-card-image ion-user-profile-avatar"
-                    alt="image caption" />
+                <img
+                    mat-card-avatar
+                    src="../../../../assets/profile.png"
+                    class="md-card-image ion-user-profile-avatar"
+                    alt="image caption"
+                />
                 <mat-card-title>
                     {{ name }}
                 </mat-card-title>
@@ -38,32 +62,64 @@
                     POST
                 </span>
             </mat-card-header>
-            <hr>
+            <hr />
             <mat-card-content>
                 <mat-form-field class="ion-create-post-input">
-                    <textarea type="text" matInput placeholder="What's on your mind?" [(ngModel)]="status"></textarea>
+                    <textarea
+                        type="text"
+                        matInput
+                        placeholder="What's on your mind?"
+                        [(ngModel)]="status"
+                    ></textarea>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Add...</mat-label>
                     <mat-select [(ngModel)]="types">
-                        <mat-option *ngFor="let CT of contentTypes" value="{{CT}}">
-                            {{CT}}
+                        <mat-option
+                            *ngFor="let CT of contentTypes"
+                            value="{{ CT }}"
+                        >
+                            {{ CT }}
                         </mat-option>
                     </mat-select>
-                    <br>
+                    <br />
                 </mat-form-field>
-                <div *ngIf="'Photos' == types" class="ion-create-post-add-media">
-                    <input type="file" (change)="uploadPhoto($event)" multiple=true accept="image/*">
+                <div
+                    *ngIf="'Photos' == types"
+                    class="ion-create-post-add-media"
+                >
+                    <input
+                        type="file"
+                        (change)="uploadPhoto($event)"
+                        multiple="true"
+                        accept="image/*"
+                    />
                 </div>
-                <div *ngIf="'Videos' === types" class="ion-create-post-add-media">
+                <div
+                    *ngIf="'Videos' === types"
+                    class="ion-create-post-add-media"
+                >
                     Add Video
-                    <input type="file" (change)="uploadVideos($event)" multiple=true accept="video/*">
+                    <input
+                        type="file"
+                        (change)="uploadVideos($event)"
+                        multiple="true"
+                        accept="video/*"
+                    />
                 </div>
-                <div *ngIf="'Audio' === types" class="ion-create-post-add-media">
+                <div
+                    *ngIf="'Audio' === types"
+                    class="ion-create-post-add-media"
+                >
                     Add Audio
-                    <input type="file" (change)="uploadAudio($event)" multiple=true accept="audio/*">
+                    <input
+                        type="file"
+                        (change)="uploadAudio($event)"
+                        multiple="true"
+                        accept="audio/*"
+                    />
                 </div>
-                <br>
+                <br />
                 <button (click)="createPostCancel()">Cancel</button>
             </mat-card-content>
         </mat-card>

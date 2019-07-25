@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -11,11 +11,11 @@
 // hue. Available color palettes: https://material.io/design/color/
 // Color picker: https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=00796B
 // mat-palette accepts $palette-name, main, lighter and darker variants
-$candy-app-primary: mat-palette($mat-teal, 800);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-primary: mat-palette($mat-blue, 800);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$candy-app-warn:    mat-palette($mat-red);
+$candy-app-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);

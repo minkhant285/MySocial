@@ -1,41 +1,42 @@
 .itl-login-container {
-    max-width: 500px;
-    height: 285px;
-    padding: 0 0;
-    margin: 0 auto;
-    border: 1px solid lightgray;
-    border-radius: 4px;
+  max-width: 500px;
+  height: 285px;
+  padding: 0 0;
+  margin: 0 auto;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  background-color: #ffffff;
 
-    .itl-login-card {
-        background: transparent;
-        box-shadow: none;
+  .itl-login-card {
+    background: transparent;
+    box-shadow: none;
 
-        .itl-form-container {
-            display: flex;
-            flex-direction: column;
-            margin-left: 40px;
-            margin-right: 40px;
+    .itl-form-container {
+      display: flex;
+      flex-direction: column;
+      margin-left: 40px;
+      margin-right: 40px;
 
-            .itl-login-button-container {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-            }
-        }   
-        
-        .itl-login-buttons-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            margin-left: 40px;
-            margin-right: 40px;
-            margin-top: 20px;
-        }
-    }    
+      .itl-login-button-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .itl-login-buttons-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-left: 40px;
+      margin-right: 40px;
+      margin-top: 20px;
+    }
+  }
 }
 
 @media only screen and (max-width: 500px) {
-    .itl-login-container {
-        border: 0;
-    }
+  .itl-login-container {
+    border: 0;
+  }
 }

@@ -33,7 +33,8 @@ import {
     PostComponent,
     CreatePostComponent,
     PostsComponent,
-    CommentDialog
+    CommentDialog,
+    SignupComponent
 } from "./components";
 
 import { GraphQLConfigModule } from './graphql';
@@ -64,6 +65,7 @@ import {
     MatMenuModule,
     MatExpansionModule,
     MatAutocompleteModule,
+    MatBadgeModule,
 } from "@angular/material";
 
 import {
@@ -78,16 +80,16 @@ import {
     HomeApiService
 } from "./services";
 
-let config = new AuthServiceConfig([
-    {
-        id: FacebookLoginProvider.PROVIDER_ID,
-        provider: new FacebookLoginProvider("853617288343751")
-    }
-]);
+// let config = new AuthServiceConfig([
+//     {
+//         id: FacebookLoginProvider.PROVIDER_ID,
+//         provider: new FacebookLoginProvider("853617288343751")
+//     }
+// ]);
 
-export function provideConfig() {
-    return config;
-}
+// export function provideConfig() {
+//     return config;
+// }
 @NgModule({
     declarations: [
         AppComponent,
@@ -111,6 +113,7 @@ export function provideConfig() {
         PostComponent,
         PostsComponent,
         CommentDialog,
+        SignupComponent,
     ],
     imports: [
         BrowserModule,
@@ -145,6 +148,7 @@ export function provideConfig() {
         MatMenuModule,
         MatExpansionModule,
         MatAutocompleteModule,
+        MatBadgeModule,
         SocialLoginModule,
         GraphQLConfigModule,
         AgmCoreModule.forRoot({
@@ -163,7 +167,7 @@ export function provideConfig() {
         LocationService,
         {
             provide: AuthServiceConfig,
-            useFactory: provideConfig
+            //useFactory: provideConfig
         }
     ],
     bootstrap: [AppComponent],
